@@ -7,6 +7,7 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import SearchIcon from "@material-ui/icons/Search";
 import Container from "@material-ui/core/Container";
 import { makeStyles, fade } from "@material-ui/core/styles";
+import { getSearchData } from "../utils/getSearchData";
 
 const useStyles = makeStyles(theme => ({
   youtube: {
@@ -60,7 +61,7 @@ const useStyles = makeStyles(theme => ({
     }
   }
 }));
-const NavBar = () => {
+const NavBar = ({ updateState }) => {
   const classes = useStyles();
 
   const [state, setState] = useState({ inputValue: "" });
@@ -70,6 +71,7 @@ const NavBar = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    getSearchData(state.inputValue).then(videos => updateState(videos));
     setState({ inputValue: "" });
   };
   return (
