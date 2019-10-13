@@ -63,8 +63,8 @@ const useStyles = makeStyles(theme => ({
 }));
 const NavBar = ({ updateState }) => {
   const classes = useStyles();
-
   const [state, setState] = useState({ inputValue: "" });
+
   const handleChange = e => {
     setState({ inputValue: e.target.value });
   };
@@ -74,6 +74,7 @@ const NavBar = ({ updateState }) => {
     getSearchData(state.inputValue).then(videos => updateState(videos));
     setState({ inputValue: "" });
   };
+
   return (
     <AppBar position="static" className={classes.test}>
       <Container>
