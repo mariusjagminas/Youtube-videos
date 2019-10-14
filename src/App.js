@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import { data } from "../src/teporaryData";
 import Box from "@material-ui/core/Box";
 import VideosList from "./components/VideosList";
+import { getYoutubeVideos } from "./utils/getYoutubeVideos";
 
 class App extends React.Component {
   state = {
@@ -14,15 +15,17 @@ class App extends React.Component {
     currentVideo: data.items[4]
   };
 
-  updateState = videos => {
-    this.setState({ videos: videos });
+  updateState = term => {
+    getYoutubeVideos(term).then(videos =>
+      this.setState({ videos: videos, currentVideo: videos[1] })
+    );
   };
 
   render() {
     return (
       <>
         <CssBaseline />
-        <NavBar updateState={this.updateState} />
+        <NavBar onSearchSubmit={this.updateState} />
         <Box pt={6}>
           <Container>
             <Grid container spacing={5}>

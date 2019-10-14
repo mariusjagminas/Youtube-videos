@@ -7,7 +7,8 @@ const VideosList = ({ videos }) => {
     <List>
       {videos.map(vid => (
         <VideoItem
-          key={vid.snippet.title}
+          key={vid.id.videoId}
+          videoId={vid.id.videoId}
           title={vid.snippet.title}
           imgUrl={vid.snippet.thumbnails.medium.url}
           channelTitle={vid.snippet.channelTitle}

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import moment from "moment";
 
 const useStyle = makeStyles({
   container: {
@@ -28,7 +29,7 @@ const MainVideo = ({ currentVideo }) => {
     <Card className={classes.card}>
       <div className={classes.container}>
         <iframe
-          titlr={currentVideo.snippet.title}
+          title={currentVideo.snippet.title}
           className={classes.iframe}
           src={`https://www.youtube.com/embed/${currentVideo.id.videoId}`}
           allowFullScreen={true}
@@ -37,6 +38,9 @@ const MainVideo = ({ currentVideo }) => {
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
           {currentVideo.snippet.title}
+        </Typography>
+        <Typography gutterBottom variant="subtitle2" component="h2">
+          {moment(currentVideo.snippet.publishedAt).format("MMM DD YYYY")}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           {currentVideo.snippet.description}

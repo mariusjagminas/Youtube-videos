@@ -3,7 +3,7 @@ import { config } from "../config";
 
 const url = "https://www.googleapis.com/youtube/v3/search";
 
-export const getSearchData = async term => {
+export const getYoutubeVideos = async term => {
   try {
     const response = await axios.get(url, {
       params: {

@@ -14,14 +14,15 @@ const useStyles = makeStyles(theme => ({
   imgContainer: {
     width: "100%",
     paddingBottom: "56.25%",
-    height: 0
+    height: 0,
+    overflow: "hidden"
   },
   img: {
     width: "100%"
   }
 }));
 
-const VideoItem = ({ imgUrl, title, channelTitle }) => {
+const VideoItem = ({ imgUrl, title, channelTitle, videoId }) => {
   const classes = useStyles();
   return (
     <>
