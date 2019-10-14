@@ -1,12 +1,13 @@
 import React from "react";
-import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 const useStyle = makeStyles({
   container: {
     position: "relative",
     width: "100%",
-    // paddingTop: "30px",
     paddingBottom: "56.25%",
     overflow: "hidden"
   },
@@ -15,7 +16,8 @@ const useStyle = makeStyles({
     top: 0,
     right: 0,
     width: "100%",
-    height: "100%"
+    height: "100%",
+    border: 0
   }
 });
 
@@ -23,15 +25,24 @@ const MainVideo = ({ currentVideo }) => {
   const classes = useStyle();
 
   return (
-    <Paper>
+    <Card className={classes.card}>
       <div className={classes.container}>
         <iframe
+          titlr={currentVideo.snippet.title}
           className={classes.iframe}
           src={`https://www.youtube.com/embed/${currentVideo.id.videoId}`}
           allowFullScreen={true}
         />
       </div>
-    </Paper>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          {currentVideo.snippet.title}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {currentVideo.snippet.description}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 
