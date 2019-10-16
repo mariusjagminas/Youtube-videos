@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-const Search = ({ children, onSearchSubmit }) => {
-  const [state, setState] = useState({ inputValue: "" });
-
-  const handleChange = e => {
-    setState({ inputValue: e.target.value });
+class Search extends React.Component {
+  state = {
+    inputValue: ""
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSearchSubmit(state.inputValue);
+  handleChange = e => {
+    this.setState({ inputValue: e.target.value });
   };
 
-  return <>{children(handleChange, handleSubmit, state.inputValue)}</>;
-};
+  handleSubmit = e => {
+    e.preventDefault(e);
+    this.props.onSearchSubmit(this.state.inputValue);
+  };
+
+  render() {
+    return this.props.children(
+      this.handleChange,
+      this.handleSubmit,
+      this.state.inputValue
+    );
+  }
+}
 
 export default Search;
 
