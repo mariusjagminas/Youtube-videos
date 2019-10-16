@@ -4,10 +4,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import SearchBox from "../components/SearchBox";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   navBar: {
     backgroundColor: theme.palette.grey[100]
   },
@@ -24,10 +24,9 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.grey[900]
     }
   }
-}));
-const NavBar = ({ onSearchSubmit }) => {
-  const classes = useStyles();
+});
 
+const NavBar = ({ onSearchSubmit, classes }) => {
   return (
     <AppBar position="static" elevation={1} className={classes.navBar}>
       <Container>
@@ -43,4 +42,4 @@ const NavBar = ({ onSearchSubmit }) => {
   );
 };
 
-export default NavBar;
+export default withStyles(styles)(NavBar);

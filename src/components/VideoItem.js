@@ -1,11 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   gridContainer: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2)
@@ -20,10 +20,9 @@ const useStyles = makeStyles(theme => ({
   img: {
     width: "100%"
   }
-}));
+});
 
-const VideoItem = ({ imgUrl, title, channelTitle, videoId }) => {
-  const classes = useStyles();
+const VideoItem = ({ imgUrl, title, channelTitle, videoId, classes }) => {
   return (
     <>
       <ListItem button>
@@ -48,4 +47,4 @@ const VideoItem = ({ imgUrl, title, channelTitle, videoId }) => {
   );
 };
 
-export default VideoItem;
+export default withStyles(styles)(VideoItem);

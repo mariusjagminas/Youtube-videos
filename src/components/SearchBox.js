@@ -1,10 +1,10 @@
 import React from "react";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles, fade } from "@material-ui/core/styles";
+import { withStyles, fade } from "@material-ui/core/styles";
 import Search from "../containers/Search";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   search: {
     position: "relative",
     color: theme.palette.grey[900],
@@ -44,10 +44,9 @@ const useStyles = makeStyles(theme => ({
       }
     }
   }
-}));
+});
 
-const SearchBox = ({ onSearchSubmit }) => {
-  const classes = useStyles();
+const SearchBox = ({ onSearchSubmit, classes }) => {
   return (
     <Search onSearchSubmit={onSearchSubmit}>
       {(handleChange, handleSubmit, inputValue) => (
@@ -71,4 +70,4 @@ const SearchBox = ({ onSearchSubmit }) => {
   );
 };
 
-export default SearchBox;
+export default withStyles(styles)(SearchBox);

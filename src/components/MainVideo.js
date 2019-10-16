@@ -1,11 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
+import { withStyles } from "@material-ui/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
 
-const useStyle = makeStyles({
+const styles = {
   container: {
     position: "relative",
     width: "100%",
@@ -20,11 +20,9 @@ const useStyle = makeStyles({
     height: "100%",
     border: 0
   }
-});
+};
 
-const MainVideo = ({ currentVideo }) => {
-  const classes = useStyle();
-
+const MainVideo = ({ currentVideo, classes }) => {
   return (
     <Card className={classes.card}>
       <div className={classes.container}>
@@ -50,4 +48,4 @@ const MainVideo = ({ currentVideo }) => {
   );
 };
 
-export default MainVideo;
+export default withStyles(styles)(MainVideo);
