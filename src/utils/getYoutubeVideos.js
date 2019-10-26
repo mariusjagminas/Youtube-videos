@@ -13,8 +13,8 @@ export const getYoutubeVideos = async term => {
         q: term
       }
     });
-    return response.data.items;
+    // excluding playlists and channels items from returned list
+    const videos = await response.data.items.filter(vid => vid.id.videoId);
+    return videos || [];
   } catch {}
 };
-
-// https://www.youtube.com/embed/ video id

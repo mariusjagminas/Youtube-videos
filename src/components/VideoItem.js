@@ -4,6 +4,7 @@ import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   gridContainer: {
@@ -48,3 +49,10 @@ const VideoItem = ({ imgUrl, title, channelTitle, videoId, classes }) => {
 };
 
 export default withStyles(styles)(VideoItem);
+
+VideoItem.propTypes = {
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  channelTitle: PropTypes.string.isRequired,
+  videoId: PropTypes.string.isRequired
+};

@@ -1,6 +1,7 @@
 import React from "react";
 import List from "@material-ui/core/List";
 import VideoItem from "../components/VideoItem";
+import PropTypes from "prop-types";
 
 const VideosList = ({ videos }) => {
   return (
@@ -19,3 +20,7 @@ const VideosList = ({ videos }) => {
 };
 
 export default VideosList;
+
+VideosList.propTypes = {
+  videos: PropTypes.array
+};

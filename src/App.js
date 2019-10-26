@@ -16,9 +16,10 @@ class App extends React.Component {
   };
 
   updateState = term => {
-    getYoutubeVideos(term).then(videos =>
-      this.setState({ videos: videos, currentVideo: videos[1] })
-    );
+    getYoutubeVideos(term).then(videos => {
+      console.log(videos);
+      this.setState({ videos: videos, currentVideo: videos[1] });
+    });
   };
 
   render() {
@@ -26,6 +27,7 @@ class App extends React.Component {
       <>
         <CssBaseline />
         <NavBar onSearchSubmit={this.updateState} />
+        {/* TODO: Maybe i need to rename onSearchSubmit to a updateState  */}
         <Box pt={6}>
           <Container>
             <Grid container spacing={5}>

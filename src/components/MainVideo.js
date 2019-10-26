@@ -22,8 +22,8 @@ const styles = {
   }
 };
 
-const MainVideo = ({ currentVideo, classes }) => {
-  return (
+const MainVideo = ({ currentVideo, classes }) =>
+  console.log(currentVideo) || (
     <Card className={classes.card}>
       <div className={classes.container}>
         <iframe
@@ -46,6 +46,5 @@ const MainVideo = ({ currentVideo, classes }) => {
       </CardContent>
     </Card>
   );
-};
 
 export default withStyles(styles)(MainVideo);
