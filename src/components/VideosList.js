@@ -3,11 +3,12 @@ import List from "@material-ui/core/List";
 import VideoItem from "../components/VideoItem";
 import PropTypes from "prop-types";
 
-const VideosList = ({ videos }) => {
+const VideosList = ({ videos, changeMainVideo }) => {
   return (
     <List>
       {videos.map(vid => (
         <VideoItem
+          changeMainVideo={changeMainVideo}
           key={vid.id.videoId}
           videoId={vid.id.videoId}
           title={vid.snippet.title}

@@ -30,6 +30,10 @@ class App extends React.Component {
     });
   };
 
+  changeMainVideo = term => {
+    this.updateState(term);
+  };
+
   render() {
     return (
       <>
@@ -49,7 +53,10 @@ class App extends React.Component {
                   )}
                 </Grid>
                 <Grid item xs={12} md={5}>
-                  <VideosList videos={this.state.videos} />
+                  <VideosList
+                    videos={this.state.videos}
+                    changeMainVideo={this.changeMainVideo}
+                  />
                 </Grid>
               </Grid>
             </Container>

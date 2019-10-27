@@ -23,10 +23,17 @@ const styles = theme => ({
   }
 });
 
-const VideoItem = ({ imgUrl, title, channelTitle, videoId, classes }) => {
+const VideoItem = ({
+  imgUrl,
+  title,
+  channelTitle,
+  videoId,
+  classes,
+  changeMainVideo
+}) => {
   return (
     <>
-      <ListItem button>
+      <ListItem button onClick={changeMainVideo.bind(null, title)}>
         <Grid container spacing={2} className={classes.gridContainer}>
           <Grid item xs={8}>
             <div className={classes.imgContainer}>
