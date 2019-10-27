@@ -22,29 +22,28 @@ const styles = {
   }
 };
 
-const MainVideo = ({ currentVideo, classes }) =>
-  console.log(currentVideo) || (
-    <Card className={classes.card}>
-      <div className={classes.container}>
-        <iframe
-          title={currentVideo.snippet.title}
-          className={classes.iframe}
-          src={`https://www.youtube.com/embed/${currentVideo.id.videoId}`}
-          allowFullScreen={true}
-        />
-      </div>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          {currentVideo.snippet.title}
-        </Typography>
-        <Typography gutterBottom variant="subtitle2" component="h2">
-          {moment(currentVideo.snippet.publishedAt).format("MMM DD YYYY")}
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {currentVideo.snippet.description}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
+const MainVideo = ({ currentVideo, classes }) => (
+  <Card className={classes.card}>
+    <div className={classes.container}>
+      <iframe
+        title={currentVideo.snippet.title}
+        className={classes.iframe}
+        src={`https://www.youtube.com/embed/${currentVideo.id.videoId}`}
+        allowFullScreen={true}
+      />
+    </div>
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="h2">
+        {currentVideo.snippet.title}
+      </Typography>
+      <Typography gutterBottom variant="subtitle2" component="h2">
+        {moment(currentVideo.snippet.publishedAt).format("MMM DD YYYY")}
+      </Typography>
+      <Typography variant="body2" color="textSecondary" component="p">
+        {currentVideo.snippet.description}
+      </Typography>
+    </CardContent>
+  </Card>
+);
 
 export default withStyles(styles)(MainVideo);

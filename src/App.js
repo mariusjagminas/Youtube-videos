@@ -12,13 +12,13 @@ import { getYoutubeVideos } from "./utils/getYoutubeVideos";
 class App extends React.Component {
   state = {
     videos: data.items,
-    currentVideo: data.items[4]
+    currentVideo: data.items[0],
+    error: false
   };
 
   updateState = term => {
     getYoutubeVideos(term).then(videos => {
-      console.log(videos);
-      this.setState({ videos: videos, currentVideo: videos[1] });
+      this.setState({ videos: videos, currentVideo: videos[0] || null });
     });
   };
 
@@ -32,7 +32,11 @@ class App extends React.Component {
           <Container>
             <Grid container spacing={5}>
               <Grid item xs={12} md={7}>
-                <MainVideo currentVideo={this.state.currentVideo} />
+                {this.state.videos.length === 0 ? (
+                  <div>No video if found for this request</div>
+                ) : (
+                  <MainVideo currentVideo={this.state.currentVideo} />
+                )}
               </Grid>
               <Grid item xs={12} md={5}>
                 <VideosList videos={this.state.videos} />
