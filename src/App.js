@@ -15,10 +15,8 @@ class App extends React.Component {
     videos: [],
     currentVideo: data.items[0],
     loading: false,
-    error: {
-      status: false,
-      message: null
-    }
+    showMessage: false,
+    error: null
   };
 
   componentDidMount() {
@@ -26,10 +24,10 @@ class App extends React.Component {
   }
 
   updateState = term => {
-    this.setState({ loading: true });
+    this.setState({ loading: true, showMessage: false });
     getYoutubeVideos(term).then(res => {
-      console.log(res);
       this.setState({
+        showMessage: true,
         loading: false,
         videos: res.videos,
         currentVideo: res.videos[0],
@@ -53,17 +51,15 @@ class App extends React.Component {
           onSearchSubmit={this.updateState}
           loading={this.state.loading}
         />
-        {/* TODO: Maybe i need to rename onSearchSubmit to a updateState  */}
         <Box pt={6}>
           <Container>
             <Grid container spacing={5}>
               <Grid item xs={12} md={7}>
-                {this.state.videos.length !== 0 &&
-                this.state.error.status === false ? (
+                {this.state.videos.length !== 0 ? (
                   <MainVideo currentVideo={this.state.currentVideo} />
-                ) : (
-                  <Message errorMessage={this.state.error.message} />
-                )}
+                ) : this.state.showMessage ? (
+                  <Message errorMessage={this.state.error} />
+                ) : null}
               </Grid>
               <Grid item xs={12} md={5}>
                 <VideosList
