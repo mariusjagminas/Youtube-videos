@@ -15,6 +15,9 @@ export const getYoutubeVideos = async term => {
     });
     // excluding playlists and channels items from returned list
     const videos = await response.data.items.filter(vid => vid.id.videoId);
-    return videos || [];
-  } catch {}
+
+    return { videos: videos, error: { status: false } };
+  } catch (err) {
+    return { videos: [], error: { status: true, message: err.message } };
+  }
 };
