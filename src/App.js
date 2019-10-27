@@ -13,25 +13,27 @@ import Message from "./components/Message";
 class App extends React.Component {
   state = {
     videos: [],
-    currentVideo: data.items[0],
-    loading: false,
-    showMessage: false,
-    error: null
+    loading: true,
+    message: null
   };
 
   componentDidMount() {
-    this.updateState("Vilnius");
+    this.updateState("React");
   }
 
   updateState = term => {
-    this.setState({ loading: true, showMessage: false });
+    this.setState({ loading: true, message: null });
     getYoutubeVideos(term).then(res => {
       this.setState({
-        showMessage: true,
         loading: false,
+        message: res.error
+          ? `Something went wrong, please try again later.
+        Error: ${res.error}`
+          : res.videos.length === 0
+          ? "No videos were found, please try another search"
+          : null,
         videos: res.videos,
-        currentVideo: res.videos[0],
-        error: res.error
+        currentVideo: res.videos[0]
       });
     });
   };
@@ -57,9 +59,9 @@ class App extends React.Component {
               <Grid item xs={12} md={7}>
                 {this.state.videos.length !== 0 ? (
                   <MainVideo currentVideo={this.state.currentVideo} />
-                ) : this.state.showMessage ? (
-                  <Message errorMessage={this.state.error} />
-                ) : null}
+                ) : (
+                  <Message message={this.state.message} />
+                )}
               </Grid>
               <Grid item xs={12} md={5}>
                 <VideosList
