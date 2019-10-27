@@ -13,6 +13,7 @@ class Search extends React.Component {
   handleSubmit = e => {
     e.preventDefault(e);
     this.props.onSearchSubmit(this.state.inputValue);
+    this.setState({ inputValue: "" });
   };
 
   render() {

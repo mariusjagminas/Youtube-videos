@@ -28,12 +28,13 @@ const VideoItem = ({
   title,
   channelTitle,
   videoId,
+  index,
   classes,
   changeMainVideo
 }) => {
   return (
     <>
-      <ListItem button onClick={changeMainVideo.bind(null, title)}>
+      <ListItem button onClick={changeMainVideo.bind(null, index)}>
         <Grid container spacing={2} className={classes.gridContainer}>
           <Grid item xs={8}>
             <div className={classes.imgContainer}>

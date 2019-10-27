@@ -6,10 +6,18 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
 import SearchBox from "../components/SearchBox";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const styles = theme => ({
   navBar: {
-    backgroundColor: theme.palette.grey[100]
+    backgroundColor: theme.palette.grey[100],
+    position: "relative"
+  },
+  progress: {
+    backgroundColor: "transparent",
+    position: "absolute",
+    width: "100%",
+    bottom: 0
   },
   youtube: {
     marginRight: theme.spacing(2),
@@ -26,9 +34,10 @@ const styles = theme => ({
   }
 });
 
-const NavBar = ({ onSearchSubmit, classes }) => {
+const NavBar = ({ onSearchSubmit, classes, loading }) => {
   return (
     <AppBar position="static" elevation={1} className={classes.navBar}>
+      {loading ? <LinearProgress className={classes.progress} /> : null}
       <Container>
         <Toolbar variant="regular" className={classes.toolbar}>
           <YouTubeIcon className={classes.youtube} />

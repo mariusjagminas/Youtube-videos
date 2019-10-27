@@ -6,8 +6,9 @@ import PropTypes from "prop-types";
 const VideosList = ({ videos, changeMainVideo }) => {
   return (
     <List>
-      {videos.map(vid => (
+      {videos.map((vid, i) => (
         <VideoItem
+          index={i}
           changeMainVideo={changeMainVideo}
           key={vid.id.videoId}
           videoId={vid.id.videoId}

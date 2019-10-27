@@ -8,21 +8,29 @@ import { data } from "../src/teporaryData";
 import Box from "@material-ui/core/Box";
 import VideosList from "./components/VideosList";
 import { getYoutubeVideos } from "./utils/getYoutubeVideos";
+import Message from "./components/Message";
 
 class App extends React.Component {
   state = {
-    videos: data.items,
+    videos: [],
     currentVideo: data.items[0],
+    loading: false,
     error: {
       status: false,
       message: null
     }
   };
 
+  componentDidMount() {
+    this.updateState("Vilnius");
+  }
+
   updateState = term => {
+    this.setState({ loading: true });
     getYoutubeVideos(term).then(res => {
       console.log(res);
       this.setState({
+        loading: false,
         videos: res.videos,
         currentVideo: res.videos[0],
         error: res.error
@@ -30,40 +38,42 @@ class App extends React.Component {
     });
   };
 
-  changeMainVideo = term => {
-    this.updateState(term);
+  changeMainVideo = index => {
+    this.setState(state => ({
+      ...this.state,
+      currentVideo: state.videos[index]
+    }));
   };
 
   render() {
     return (
       <>
         <CssBaseline />
-        <NavBar onSearchSubmit={this.updateState} />
+        <NavBar
+          onSearchSubmit={this.updateState}
+          loading={this.state.loading}
+        />
         {/* TODO: Maybe i need to rename onSearchSubmit to a updateState  */}
-
-        {this.state.error.status === false ? (
-          <Box pt={6}>
-            <Container>
-              <Grid container spacing={5}>
-                <Grid item xs={12} md={7}>
-                  {this.state.videos.length !== 0 ? (
-                    <MainVideo currentVideo={this.state.currentVideo} />
-                  ) : (
-                    <div>No video if found for this request</div>
-                  )}
-                </Grid>
-                <Grid item xs={12} md={5}>
-                  <VideosList
-                    videos={this.state.videos}
-                    changeMainVideo={this.changeMainVideo}
-                  />
-                </Grid>
+        <Box pt={6}>
+          <Container>
+            <Grid container spacing={5}>
+              <Grid item xs={12} md={7}>
+                {this.state.videos.length !== 0 &&
+                this.state.error.status === false ? (
+                  <MainVideo currentVideo={this.state.currentVideo} />
+                ) : (
+                  <Message errorMessage={this.state.error.message} />
+                )}
               </Grid>
-            </Container>
-          </Box>
-        ) : (
-          <div>errror{this.state.error.message}</div>
-        )}
+              <Grid item xs={12} md={5}>
+                <VideosList
+                  videos={this.state.videos}
+                  changeMainVideo={this.changeMainVideo}
+                />
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
       </>
     );
   }
