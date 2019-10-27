@@ -1,5 +1,4 @@
 import axios from "axios";
-import { config } from "../config";
 
 const url = "https://www.googleapis.com/youtube/v3/search";
 
@@ -9,7 +8,7 @@ export const getYoutubeVideos = async term => {
       params: {
         part: "snippet",
         maxResults: 5,
-        key: config.API_KEY,
+        key: process.env.REACT_APP_YOUTUBE_KEY,
         q: term
       }
     });
