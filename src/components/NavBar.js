@@ -7,6 +7,7 @@ import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
 import SearchBox from "../components/SearchBox";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   navBar: {
@@ -52,3 +53,8 @@ const NavBar = ({ onSearchSubmit, classes, loading }) => {
 };
 
 export default withStyles(styles)(NavBar);
+
+NavBar.propTypes = {
+  onSearchSubmit: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
+};

@@ -28,6 +28,6 @@ class Search extends React.Component {
 export default Search;
 
 Search.propTypes = {
-  children: PropTypes.func,
-  onSearchSubmit: PropTypes.func
+  children: PropTypes.func.isRequired,
+  onSearchSubmit: PropTypes.func.isRequired
 };

@@ -27,7 +27,6 @@ const VideoItem = ({
   imgUrl,
   title,
   channelTitle,
-  videoId,
   index,
   classes,
   changeMainVideo
@@ -62,5 +61,6 @@ VideoItem.propTypes = {
   imgUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   channelTitle: PropTypes.string.isRequired,
-  videoId: PropTypes.string.isRequired
+  index: PropTypes.number.isRequired,
+  changeMainVideo: PropTypes.func.isRequired
 };

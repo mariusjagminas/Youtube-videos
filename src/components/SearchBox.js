@@ -3,6 +3,7 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles, fade } from "@material-ui/core/styles";
 import Search from "../containers/Search";
+import PropTypes from "prop-types";
 
 const styles = theme => ({
   search: {
@@ -71,3 +72,7 @@ const SearchBox = ({ onSearchSubmit, classes }) => {
 };
 
 export default withStyles(styles)(SearchBox);
+
+SearchBox.propTypes = {
+  onSearchSubmit: PropTypes.func.isRequired
+};

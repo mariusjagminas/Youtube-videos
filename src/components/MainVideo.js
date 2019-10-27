@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import moment from "moment";
+import PropTypes from "prop-types";
 
 const styles = {
   container: {
@@ -47,3 +48,7 @@ const MainVideo = ({ currentVideo, classes }) => (
 );
 
 export default withStyles(styles)(MainVideo);
+
+MainVideo.propTypes = {
+  currentVideo: PropTypes.object.isRequired
+};
