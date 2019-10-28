@@ -1,6 +1,8 @@
 import axios from "axios";
 
 const url = "https://www.googleapis.com/youtube/v3/search";
+const errMessage1 = "No videos were found, please try another search";
+const errMessage2 = "Something went wrong, please try again later.";
 
 export const getYoutubeVideos = async term => {
   try {
@@ -15,8 +17,14 @@ export const getYoutubeVideos = async term => {
     // excluding playlists and channels items from returned list
     const videos = await response.data.items.filter(vid => vid.id.videoId);
 
-    return { videos: videos, error: null };
+    return {
+      videos: videos,
+      errorMessage: videos.length === 0 ? errMessage1 : null
+    };
   } catch (err) {
-    return { videos: [], error: err.message };
+    return {
+      videos: [],
+      errorMessage: `${errMessage2}  Error: ${err.message}`
+    };
   }
 };

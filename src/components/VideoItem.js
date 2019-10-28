@@ -41,10 +41,20 @@ const VideoItem = ({
             </div>
           </Grid>
           <Grid item xs={4}>
-            <Typography component="h2" variant="body1" color="textPrimary">
+            <Typography
+              noWrap={true}
+              component="h2"
+              variant="body1"
+              color="textPrimary"
+            >
               {title}
             </Typography>
-            <Typography component="div" variant="body2" color="textSecondary">
+            <Typography
+              noWrap={true}
+              component="div"
+              variant="body2"
+              color="textSecondary"
+            >
               {channelTitle}
             </Typography>
           </Grid>

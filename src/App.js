@@ -4,7 +4,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import MainVideo from "../src/components/MainVideo";
 import Grid from "@material-ui/core/Grid";
-import { data } from "../src/teporaryData";
 import Box from "@material-ui/core/Box";
 import VideosList from "./components/VideosList";
 import { getYoutubeVideos } from "./utils/getYoutubeVideos";
@@ -18,7 +17,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.updateState("React");
+    this.updateState("JavaScript");
   }
 
   updateState = term => {
@@ -26,12 +25,7 @@ class App extends React.Component {
     getYoutubeVideos(term).then(res => {
       this.setState({
         loading: false,
-        message: res.error
-          ? `Something went wrong, please try again later.
-        Error: ${res.error}`
-          : res.videos.length === 0
-          ? "No videos were found, please try another search"
-          : null,
+        message: res.errorMessage,
         videos: res.videos,
         currentVideo: res.videos[0]
       });

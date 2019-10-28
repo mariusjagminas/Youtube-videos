@@ -38,7 +38,15 @@ const styles = theme => ({
 const NavBar = ({ onSearchSubmit, classes, loading }) => {
   return (
     <AppBar position="static" elevation={1} className={classes.navBar}>
-      {loading ? <LinearProgress className={classes.progress} /> : null}
+      {loading ? (
+        <LinearProgress
+          color="primary"
+          className={classes.progress}
+          classes={{
+            barColorSecondary: "red"
+          }}
+        />
+      ) : null}
       <Container>
         <Toolbar variant="regular" className={classes.toolbar}>
           <YouTubeIcon className={classes.youtube} />
