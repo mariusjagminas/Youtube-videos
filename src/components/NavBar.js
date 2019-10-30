@@ -20,6 +20,7 @@ const styles = theme => ({
     width: "100%",
     bottom: 0
   },
+  progressBar: { background: "red" },
   youtube: {
     marginRight: theme.spacing(2),
     fontSize: "30px",
@@ -43,7 +44,7 @@ const NavBar = ({ onSearchSubmit, classes, loading }) => {
           color="primary"
           className={classes.progress}
           classes={{
-            barColorSecondary: "red"
+            barColorPrimary: classes.progressBar
           }}
         />
       ) : null}
