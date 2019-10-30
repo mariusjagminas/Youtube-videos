@@ -24,7 +24,7 @@ class App extends React.Component {
     this.setState({ loading: true, message: null });
     getYoutubeVideos(term).then(res => {
       this.setState({
-        loading: true,
+        loading: false,
         message: res.errorMessage,
         videos: res.videos,
         currentVideo: res.videos[0]
