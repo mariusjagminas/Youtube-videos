@@ -12,7 +12,10 @@ import PropTypes from "prop-types";
 const styles = theme => ({
   navBar: {
     backgroundColor: theme.palette.grey[100],
-    position: "relative"
+    position: "fixed",
+    [theme.breakpoints.up("sm")]: {
+      position: "relative"
+    }
   },
   progress: {
     backgroundColor: "transparent",
@@ -38,7 +41,7 @@ const styles = theme => ({
 
 const NavBar = ({ onSearchSubmit, classes, loading }) => {
   return (
-    <AppBar position="static" elevation={1} className={classes.navBar}>
+    <AppBar elevation={1} className={classes.navBar}>
       {loading ? (
         <LinearProgress
           color="primary"

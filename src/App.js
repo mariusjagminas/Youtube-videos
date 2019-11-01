@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./components/NavBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Container from "@material-ui/core/Container";
+import ContainerNoPadding from "../src/components/ContainerNoPadding";
 import MainVideo from "../src/components/MainVideo";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -47,8 +47,8 @@ class App extends React.Component {
           onSearchSubmit={this.updateState}
           loading={this.state.loading}
         />
-        <Box pt={6}>
-          <Container>
+        <Box pt={7}>
+          <ContainerNoPadding upTo={600}>
             <Grid container spacing={5}>
               <Grid item xs={12} md={7}>
                 {this.state.videos.length !== 0 ? (
@@ -64,7 +64,7 @@ class App extends React.Component {
                 />
               </Grid>
             </Grid>
-          </Container>
+          </ContainerNoPadding>
         </Box>
       </>
     );

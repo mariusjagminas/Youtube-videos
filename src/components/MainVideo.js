@@ -7,6 +7,11 @@ import moment from "moment";
 import PropTypes from "prop-types";
 
 const styles = {
+  card: {
+    // "@media(max-width: 400px)": {
+    //   margin: "0"
+    // }
+  },
   container: {
     position: "relative",
     width: "100%",
