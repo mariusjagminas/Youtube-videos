@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./components/NavBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ContainerNoPadding from "../src/components/ContainerNoPadding";
+import Container from "@material-ui/core/Container";
 import MainVideo from "../src/components/MainVideo";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -27,8 +27,10 @@ class App extends React.Component {
         loading: false,
         message: res.errorMessage,
         videos: res.videos,
-        currentVideo: res.videos[0]
+        currentVideo: res.videos[0],
+        deviceWidth: window.innerWidth
       });
+      this.scrollToTop();
     });
   };
 
@@ -47,6 +49,7 @@ class App extends React.Component {
   };
 
   render() {
+    const isMobile = this.state.deviceWidth < 500;
     return (
       <>
         <CssBaseline />
@@ -54,8 +57,8 @@ class App extends React.Component {
           onSearchSubmit={this.updateState}
           loading={this.state.loading}
         />
-        <Box pt={7}>
-          <ContainerNoPadding upTo={600}>
+        <Box pt={isMobile ? 9 : 5}>
+          <Container style={{ padding: isMobile ? "0" : "16px" }}>
             <Grid container spacing={5}>
               <Grid item xs={12} md={7}>
                 {this.state.videos.length !== 0 ? (
@@ -71,7 +74,7 @@ class App extends React.Component {
                 />
               </Grid>
             </Grid>
-          </ContainerNoPadding>
+          </Container>
         </Box>
       </>
     );
