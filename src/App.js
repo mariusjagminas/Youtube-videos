@@ -59,7 +59,7 @@ class App extends React.Component {
         />
         <Box pt={isMobile ? 9 : 5}>
           <Container style={{ padding: isMobile ? "0" : "16px" }}>
-            <Grid container spacing={5}>
+            <Grid container spacing={isMobile ? 0 : 5}>
               <Grid item xs={12} md={7}>
                 {this.state.videos.length !== 0 ? (
                   <MainVideo currentVideo={this.state.currentVideo} />
