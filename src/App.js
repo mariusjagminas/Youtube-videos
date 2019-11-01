@@ -33,10 +33,17 @@ class App extends React.Component {
   };
 
   changeMainVideo = index => {
-    this.setState(state => ({
-      ...this.state,
-      currentVideo: state.videos[index]
-    }));
+    this.setState(
+      state => ({
+        ...this.state,
+        currentVideo: state.videos[index]
+      }),
+      this.scrollToTop()
+    );
+  };
+
+  scrollToTop = () => {
+    window.scrollTo(0, 0);
   };
 
   render() {
