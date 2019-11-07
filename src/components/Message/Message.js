@@ -7,7 +7,7 @@ const Message = ({ message }) => {
   if (!message) return null;
   return (
     <Box p={2}>
-      <Typography component="h2" variant="h3">
+      <Typography component="h2" variant="h3" data-test="message">
         {message}
       </Typography>
     </Box>
