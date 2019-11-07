@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import VideosList from "./components/VideosList";
 import { getYoutubeVideos } from "./utils/getYoutubeVideos";
-import Message from "./components/Message";
+import Message from "./components/Message/Message";
 
 class App extends React.Component {
   state = {

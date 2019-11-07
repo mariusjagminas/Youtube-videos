@@ -4,16 +4,13 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
 const Message = ({ message }) => {
+  if (!message) return null;
   return (
-    <>
-      {message ? (
-        <Box p={2}>
-          <Typography component="h3" variant="h3">
-            {message}
-          </Typography>
-        </Box>
-      ) : null}
-    </>
+    <Box p={2}>
+      <Typography component="h2" variant="h3">
+        {message}
+      </Typography>
+    </Box>
   );
 };
 

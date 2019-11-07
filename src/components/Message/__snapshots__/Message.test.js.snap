@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message component match snapshot then it is not  1`] = `null`;
+
+exports[`Message component match snapshot then it is redered 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-2"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h3"
+  >
+    test message
+  </h2>
+</div>
+`;
+
+exports[`Message component match snapshot then it's redered 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-2"
+>
+  <h2
+    className="MuiTypography-root MuiTypography-h3"
+  >
+    test message
+  </h2>
+</div>
+`;
