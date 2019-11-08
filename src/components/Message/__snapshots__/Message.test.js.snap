@@ -1,14 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Message component matches a snapshot 1`] = `
+exports[`Message component should match a snapshot 1`] = `
 <div
   className="MuiBox-root MuiBox-root-2"
 >
   <h2
     className="MuiTypography-root MuiTypography-h3"
-    data-test="message"
   >
-    test message
+    message
   </h2>
 </div>
 `;
