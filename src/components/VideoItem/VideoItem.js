@@ -33,7 +33,11 @@ const VideoItem = ({
 }) => {
   return (
     <>
-      <ListItem button onClick={changeMainVideo.bind(null, index)}>
+      <ListItem
+        button
+        onClick={changeMainVideo.bind(null, index)}
+        data-test="button"
+      >
         <Grid container spacing={2} className={classes.gridContainer}>
           <Grid item xs={8}>
             <div className={classes.imgContainer}>
