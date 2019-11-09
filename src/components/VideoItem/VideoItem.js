@@ -41,7 +41,7 @@ const VideoItem = ({
         <Grid container spacing={2} className={classes.gridContainer}>
           <Grid item xs={8}>
             <div className={classes.imgContainer}>
-              <img className={classes.img} alt={title} src={imgUrl} />
+              <img className={classes.img} src={imgUrl} alt={title} />
             </div>
           </Grid>
           <Grid item xs={4}>
