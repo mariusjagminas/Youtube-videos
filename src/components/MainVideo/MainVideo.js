@@ -50,5 +50,12 @@ const MainVideo = ({ currentVideo, classes }) => (
 export default withStyles(styles)(MainVideo);
 
 MainVideo.propTypes = {
-  currentVideo: PropTypes.object.isRequired
+  currentVideo: PropTypes.shape({
+    id: PropTypes.shape({ videoId: PropTypes.string.isRequired }),
+    snippet: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      publishedAt: PropTypes.string.isRequired
+    })
+  })
 };
