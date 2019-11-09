@@ -31,9 +31,9 @@ Array [
           className="VideoItem-imgContainer-2"
         >
           <img
-            alt="test-title"
+            alt="test-title-1245766"
             className="VideoItem-img-3"
-            src="test.img"
+            src="test-g6373.img"
           />
         </div>
       </div>
@@ -43,12 +43,12 @@ Array [
         <h2
           className="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextPrimary MuiTypography-noWrap"
         >
-          test-title
+          test-title-1245766
         </h2>
         <div
           className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
         >
-          test-channel
+          test-channel-76478347834
         </div>
       </div>
     </div>
