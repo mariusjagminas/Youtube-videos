@@ -37,7 +37,12 @@ const MainVideo = ({ currentVideo, classes }) => (
       <Typography gutterBottom variant="h5" component="h2">
         {currentVideo.snippet.title}
       </Typography>
-      <Typography gutterBottom variant="subtitle2" component="h2">
+      <Typography
+        gutterBottom
+        variant="subtitle2"
+        component="h2"
+        test-data="videoDate"
+      >
         {moment(currentVideo.snippet.publishedAt).format("MMM DD YYYY")}
       </Typography>
       <Typography variant="body2" color="textSecondary" component="p">
