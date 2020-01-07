@@ -4,12 +4,11 @@ import { shallow } from "enzyme";
 import { checkIfMatchSnapshot, checkPropTypes } from "../../utils/tests";
 
 describe("<Message/>", () => {
-  checkIfMatchSnapshot(<Message message={"message"} />);
-
   const props = {
     message: "string"
   };
 
+  checkIfMatchSnapshot(<Message message={"message"} />);
   checkPropTypes(Message, props);
 
   it("should render a message if it passed in as a prop", () => {
