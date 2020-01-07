@@ -3,7 +3,7 @@ import Message from "./Message";
 import { shallow } from "enzyme";
 import { checkIfMatchSnapshot, checkPropTypes } from "../../utils/tests";
 
-describe("Message component", () => {
+describe("<Message/>", () => {
   checkIfMatchSnapshot(<Message message={"message"} />);
 
   const props = {
@@ -12,13 +12,13 @@ describe("Message component", () => {
 
   checkPropTypes(Message, props);
 
-  it("should render a message if it passed in", () => {
+  it("should render a message if it passed in as a prop", () => {
     const wrapper = shallow(<Message message={"test-message"} />);
-    const result = wrapper.contains("test-message");
-    expect(result).toBe(true);
+
+    expect(wrapper.contains("test-message")).toBe(true);
   });
 
-  it("shoud render null if no message is passed in", () => {
+  it("shoud render null if no message is passed in as a prop", () => {
     const wrapper = shallow(<Message />);
     expect(wrapper.isEmptyRender()).toBe(true);
   });
