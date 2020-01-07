@@ -1,5 +1,5 @@
 import React from "react";
-import { checkIfMatchSnapshot } from "../../utils/tests";
+import { checkIfMatchSnapshot, checkPropTypes } from "../../utils/tests";
 import { shallow } from "enzyme";
 import MainVideo from "./MainVideo";
 
@@ -14,6 +14,7 @@ describe("<MainVideo/>", () => {
   };
 
   checkIfMatchSnapshot(<MainVideo currentVideo={props} />);
+  checkPropTypes(MainVideo, props);
 
   let wrapper;
   beforeEach(() => {
