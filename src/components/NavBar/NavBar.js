@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
-import SearchBox from "../components/SearchBox";
+import SearchBox from "";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import PropTypes from "prop-types";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import MainVideo from "../src/components/MainVideo/MainVideo";
