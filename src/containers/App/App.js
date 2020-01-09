@@ -1,13 +1,13 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import MainVideo from "../src/components/MainVideo/MainVideo";
+import MainVideo from "../../components/MainVideo/MainVideo";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import VideosList from "./components/VideosList";
-import { getYoutubeVideos } from "./utils/getYoutubeVideos";
-import Message from "./components/Message/Message";
+import VideosList from "../../components/VideosList/VideosList";
+import { getYoutubeVideos } from "../../api/getYoutubeVideos";
+import Message from "../../components/Message/Message";
 
 class App extends React.Component {
   state = {

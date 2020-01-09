@@ -2,7 +2,7 @@ import React from "react";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles, fade } from "@material-ui/core/styles";
-import Search from "../containers/Search";
+import Search from "../../containers/Search/Search";
 import PropTypes from "prop-types";
 
 const styles = theme => ({

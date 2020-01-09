@@ -1,6 +1,6 @@
 import React from "react";
 import List from "@material-ui/core/List";
-import VideoItem from "../components/VideoItem/VideoItem";
+import VideoItem from "../VideoItem/VideoItem";
 import PropTypes from "prop-types";
 
 const VideosList = ({ videos, changeMainVideo }) => {
