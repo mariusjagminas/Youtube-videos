@@ -13,15 +13,9 @@ describe("<MainVideo/>", () => {
     }
   };
 
-  checkIfMatchSnapshot(<MainVideo currentVideo={props} />);
-  checkPropTypes(MainVideo, props);
+  const wrapper = shallow(<MainVideo currentVideo={props} />).dive();
 
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow(<MainVideo currentVideo={props} />).dive();
-  });
-
-  it("should render <iframe/> element", () => {
+  it("should render <iframe/> element with a correct url", () => {
     expect(
       wrapper.containsMatchingElement(
         <iframe src="https://www.youtube.com/embed/GHJ6899GHR" />
@@ -37,7 +31,10 @@ describe("<MainVideo/>", () => {
     expect(wrapper.contains("test-description-JGH7688")).toBeTruthy();
   });
 
-  it("should render date in correct format", () => {
+  it("should render date in the correct format", () => {
     expect(wrapper.contains("Dec 10 2018")).toBeTruthy();
   });
+
+  checkIfMatchSnapshot(<MainVideo currentVideo={props} />);
+  checkPropTypes(MainVideo, props);
 });
