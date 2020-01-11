@@ -14,7 +14,7 @@ export const getYoutubeVideos = async term => {
         q: term
       }
     });
-    // excluding playlists and channels items from returned list
+    // returns videos array,removes playlists and channels.
     const videos = await response.data.items.filter(vid => vid.id.videoId);
 
     return {
