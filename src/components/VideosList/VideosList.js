@@ -24,5 +24,6 @@ const VideosList = ({ videos, changeMainVideo }) => {
 export default VideosList;
 
 VideosList.propTypes = {
-  videos: PropTypes.array.isRequired
+  videos: PropTypes.array.isRequired,
+  changeMainVideo: PropTypes.func.isRequired
 };
