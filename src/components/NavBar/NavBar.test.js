@@ -33,6 +33,7 @@ describe("<NavBar/>", () => {
     const wrapper = shallow(
       <NavBar onSearchSubmit={jest.fn()} loading={true} />
     ).dive();
+
     expect(wrapper.find(LinearProgress)).toExist();
   });
 

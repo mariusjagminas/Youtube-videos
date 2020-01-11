@@ -5,20 +5,21 @@ import { checkIfMatchSnapshot, checkPropTypes } from "../../utils/tests";
 
 describe("<Message/>", () => {
   const props = {
-    message: "string"
+    message: "test-string"
   };
+
+  it("should render a message if it passed in as a prop", () => {
+    const wrapper = shallow(<Message message={"test-message-DF5GT"} />);
+
+    expect(wrapper.contains("test-message-DF5GT")).toBeTruthy();
+  });
+
+  it("shoud not render an empty component if no props are passed in", () => {
+    const wrapper = shallow(<Message />);
+
+    expect(wrapper.isEmptyRender()).toBeTruthy();
+  });
 
   checkIfMatchSnapshot(<Message message={"message"} />);
   checkPropTypes(Message, props);
-
-  it("should render a message if it passed in as a prop", () => {
-    const wrapper = shallow(<Message message={"test-message"} />);
-
-    expect(wrapper.contains("test-message")).toBe(true);
-  });
-
-  it("shoud render null if no message is passed in as a prop", () => {
-    const wrapper = shallow(<Message />);
-    expect(wrapper.isEmptyRender()).toBe(true);
-  });
 });
