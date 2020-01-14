@@ -1,19 +1,19 @@
 import React from "react";
 import { mount } from "enzyme";
-import Search from "./Search";
+import SearchContainer from "./SearchContainer";
 
 const spyFunction = jest.fn();
 
-describe("<Search/>", () => {
+describe("<SearchContainer/>", () => {
   const wrapper = mount(
-    <Search onSearchSubmit={spyFunction}>
+    <SearchContainer onSearchSubmit={spyFunction}>
       {(handleChange, handleSubmit, inputValue) => (
         <form onSubmit={handleSubmit}>
           <input value={inputValue} onChange={handleChange} />
           <p>{inputValue}</p>
         </form>
       )}
-    </Search>
+    </SearchContainer>
   );
 
   it("state's [inputValue] should be an empty string", () => {

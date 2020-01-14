@@ -3,7 +3,7 @@ import { checkIfMatchSnapshot } from "../../utils/tests";
 import { shallow } from "enzyme";
 import NavBar from "./NavBar";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import SearchBox from "../SearchBox/SearchBox";
+import SearchVideos from "../SearchVideos/SearchVideos";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
 describe("<NavBar/>", () => {
@@ -22,7 +22,7 @@ describe("<NavBar/>", () => {
   });
 
   it("should render an input element", () => {
-    expect(wrapper.find(SearchBox)).toHaveProp("onSearchSubmit");
+    expect(wrapper.find(SearchVideos)).toHaveProp("onSearchSubmit");
   });
 
   it("should not render the loading bar if loading={false}", () => {

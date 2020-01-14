@@ -2,7 +2,7 @@ import React from "react";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles, fade } from "@material-ui/core/styles";
-import Search from "../../containers/Search/Search";
+import SearchContainer from "../SearchContainer/SearchContainer";
 import PropTypes from "prop-types";
 
 const styles = theme => ({
@@ -47,9 +47,9 @@ const styles = theme => ({
   }
 });
 
-const SearchBox = ({ onSearchSubmit, classes }) => {
+const SearchVideos = ({ onSearchSubmit, classes }) => {
   return (
-    <Search onSearchSubmit={onSearchSubmit}>
+    <SearchContainer onSearchSubmit={onSearchSubmit}>
       {(handleChange, handleSubmit, inputValue) => (
         <form onSubmit={handleSubmit} className={classes.search}>
           <div className={classes.searchIcon}>
@@ -67,12 +67,12 @@ const SearchBox = ({ onSearchSubmit, classes }) => {
           />
         </form>
       )}
-    </Search>
+    </SearchContainer>
   );
 };
 
-export default withStyles(styles)(SearchBox);
+export default withStyles(styles)(SearchVideos);
 
-SearchBox.propTypes = {
+SearchVideos.propTypes = {
   onSearchSubmit: PropTypes.func.isRequired
 };
