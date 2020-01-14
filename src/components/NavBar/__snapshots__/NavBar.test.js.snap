@@ -27,11 +27,11 @@ exports[`<NavBar/> should match a snapshot 1`] = `
         Youtube Videos
       </h6>
       <form
-        className="SearchVideos-search-92"
+        className="InputBox-search-92"
         onSubmit={[Function]}
       >
         <div
-          className="SearchVideos-searchIcon-93"
+          className="InputBox-searchIcon-93"
         >
           <svg
             aria-hidden="true"
@@ -46,12 +46,12 @@ exports[`<NavBar/> should match a snapshot 1`] = `
           </svg>
         </div>
         <div
-          className="MuiInputBase-root SearchVideos-inputRoot-94"
+          className="MuiInputBase-root InputBox-inputRoot-94"
           onClick={[Function]}
         >
           <input
             aria-label="search"
-            className="MuiInputBase-input SearchVideos-inputInput-95"
+            className="MuiInputBase-input InputBox-inputInput-95"
             onAnimationStart={[Function]}
             onBlur={[Function]}
             onChange={[Function]}
