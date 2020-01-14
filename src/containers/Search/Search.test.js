@@ -10,6 +10,7 @@ describe("<Search/>", () => {
       {(handleChange, handleSubmit, inputValue) => (
         <form onSubmit={handleSubmit}>
           <input value={inputValue} onChange={handleChange} />
+          <p>{inputValue}</p>
         </form>
       )}
     </Search>
@@ -29,6 +30,8 @@ describe("<Search/>", () => {
 
   it("<input/> prop 'value' should match [inputValue] value", () => {
     expect(wrapper.find("input").props().value).toBe("test-string");
+    // additional test for inputValue
+    expect(wrapper.find("p").text()).toBe("test-string");
   });
 
   it("on submit should call the fuction with a valid args, and reset [inputValue] to an empty string", () => {
