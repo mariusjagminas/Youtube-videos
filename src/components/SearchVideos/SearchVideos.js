@@ -1,7 +1,7 @@
 import React from "react";
 import SearchContainer from "../SearchContainer/SearchContainer";
 import PropTypes from "prop-types";
-import InputBox from "../inputBox/inputBox";
+import InputBox from "../InputBox/InputBox";
 
 const SearchVideos = ({ onSearchSubmit }) => {
   return (
