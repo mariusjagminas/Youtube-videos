@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-class Search extends React.Component {
+class SearchContainer extends React.Component {
   state = {
     inputValue: ""
   };
@@ -25,9 +25,9 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+export default SearchContainer;
 
-Search.propTypes = {
+SearchContainer.propTypes = {
   children: PropTypes.func.isRequired,
   onSearchSubmit: PropTypes.func.isRequired
 };
