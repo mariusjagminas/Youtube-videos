@@ -13,7 +13,9 @@ class App extends React.Component {
   state = {
     videos: [],
     loading: true,
-    message: null
+    message: null,
+    currentVideo: undefined,
+    deviceWidth: undefined
   };
 
   componentDidMount() {
@@ -24,9 +26,9 @@ class App extends React.Component {
     this.setState({ loading: true, message: null });
     getYoutubeVideos(term).then(res => {
       this.setState({
+        videos: res.videos,
         loading: false,
         message: res.errorMessage,
-        videos: res.videos,
         currentVideo: res.videos[0],
         deviceWidth: window.innerWidth
       });
