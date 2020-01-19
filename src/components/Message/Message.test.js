@@ -3,23 +3,23 @@ import Message from "./Message";
 import { shallow } from "enzyme";
 import { checkIfMatchSnapshot, checkPropTypes } from "../../utils/tests";
 
-describe("Message component", () => {
-  checkIfMatchSnapshot(<Message message={"message"} />);
-
+describe("<Message/>", () => {
   const props = {
-    message: "string"
+    message: "test-string"
   };
 
-  checkPropTypes(Message, props);
+  it("should render a message if it passed in as a prop", () => {
+    const wrapper = shallow(<Message message={"test-message-DF5GT"} />);
 
-  it("should render a message if it passed in", () => {
-    const wrapper = shallow(<Message message={"test-message"} />);
-    const result = wrapper.contains("test-message");
-    expect(result).toBe(true);
+    expect(wrapper.contains("test-message-DF5GT")).toBeTruthy();
   });
 
-  it("shoud render null if no message is passed in", () => {
+  it("shoud not render an empty component if no props are passed in", () => {
     const wrapper = shallow(<Message />);
-    expect(wrapper.isEmptyRender()).toBe(true);
+
+    expect(wrapper.isEmptyRender()).toBeTruthy();
   });
+
+  checkIfMatchSnapshot(<Message message={"message"} />);
+  checkPropTypes(Message, props);
 });

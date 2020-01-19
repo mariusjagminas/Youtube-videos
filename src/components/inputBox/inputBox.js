@@ -2,7 +2,6 @@ import React from "react";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { withStyles, fade } from "@material-ui/core/styles";
-import Search from "../containers/Search";
 import PropTypes from "prop-types";
 
 const styles = theme => ({
@@ -17,8 +16,7 @@ const styles = theme => ({
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      //TODO: what is that
-      marginLeft: theme.spacing(1), //TODO: what is that
+      marginLeft: theme.spacing(1),
       width: "auto"
     }
   },
@@ -47,32 +45,28 @@ const styles = theme => ({
   }
 });
 
-const SearchBox = ({ onSearchSubmit, classes }) => {
-  return (
-    <Search onSearchSubmit={onSearchSubmit}>
-      {(handleChange, handleSubmit, inputValue) => (
-        <form onSubmit={handleSubmit} className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder="Search…"
-            value={inputValue}
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput
-            }}
-            onChange={handleChange}
-            inputProps={{ "aria-label": "search" }}
-          />
-        </form>
-      )}
-    </Search>
-  );
-};
+const InputBox = ({ handleChange, handleSubmit, inputValue, classes }) => (
+  <form onSubmit={handleSubmit} className={classes.search}>
+    <div className={classes.searchIcon}>
+      <SearchIcon />
+    </div>
+    <InputBase
+      placeholder="Search…"
+      value={inputValue}
+      classes={{
+        root: classes.inputRoot,
+        input: classes.inputInput
+      }}
+      onChange={handleChange}
+      inputProps={{ "aria-label": "search" }}
+    />
+  </form>
+);
 
-export default withStyles(styles)(SearchBox);
+export default withStyles(styles)(InputBox);
 
-SearchBox.propTypes = {
-  onSearchSubmit: PropTypes.func.isRequired
+InputBox.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired
 };

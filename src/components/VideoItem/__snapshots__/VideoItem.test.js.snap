@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`VideoItem component should match a snapshot 1`] = `
+exports[`<VideoItem/> should match a snapshot 1`] = `
 Array [
   <div
     aria-disabled={false}
