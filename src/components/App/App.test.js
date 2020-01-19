@@ -9,6 +9,14 @@ import VideoItem from "../VideoItem/VideoItem";
 
 describe("<App/>", () => {
   const appWrapper = mount(<App />);
+  appWrapper.instance().updateState = jest.fn();
+
+  it("lifecycle `componentDidMount` should call `updateState` method", () => {
+    appWrapper.instance().componentDidMount();
+    expect(appWrapper.instance().updateState.mock.calls[0][0]).toBe(
+      "JavaScript"
+    );
+  });
 
   it("always renders <NavBar/>", () => {
     expect(appWrapper.find(NavBar).length).toBe(1);
